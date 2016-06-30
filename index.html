@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--
+* File name: media_element_02.html
+* Description:
+* HTML Media Capture demo.
+* Select an image from local file and display it in the web browser.
+* Author: Elisabet González.
+* Source: https://www.w3.org/TR/html-media-capture/
+* Date: June 24th, 2016.
+* Version 2.0
+*
+* History:
+* v2.0  24/06/2016  capture tag used.
+* v2.1  28/06/2016  canvas size added.
+* v2.2  30/06/2016  canvas size deleted, p5js libraries added.
+-->
+
+<html>
+<head>
+    <title>HTML Media Capture Demo</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="libraries/p5.js"></script>
+    <script type="text/javascript" src="libraries/p5.dom.js"></script>
+    <script type="text/javascript" src="libraries/p5.sound.js"></script>
+    <script type="text/javascript" src="avatar.js"></script>
+</head>
+
+<body>
+<h1>HTML Media Capture v2.2</h1>
+
+<input type="file" value="image/*" accept=".svg" capture><canvas></canvas>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
