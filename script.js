@@ -32,13 +32,42 @@ var errorCallback = function(e) { //2.1
   console.log('Rejected', e);
 }
 
+var succesCallback = function(stream) { //2.2
+  video.src = window.URL.createObjectURL(stream);
+  console.log('Accepted');
+}
+
 //Video capture 2.1
 navigator.getUserMedia =  navigator.getUserMedia ||
                           navigator.webkitGetUserMedia ||
                           navigator.mozGetUserMedia ||
                           navigator.mediaDevices.getUserMedia ||
                           navigator.msGetUserMedia;
+
+//2.1
 var video = document.querySelector('video');
+
+//2.2
+var hdConstraints = {
+  video: {
+    mandatory: {
+      width: 1280,
+      height: 720
+    }
+  }
+};
+var vgaConstraints = {
+  video: {
+    mandatory: {
+      minWidth: 640,
+      minHeight: 360
+    }
+  }
+};
+
+navigator.getUserMedia(hdConstraints, succesCallback, errorCallback)
+
+//2.1
 if (navigator.getUserMedia) {
   navigator.getUserMedia({video: true}, function(stream) {
     video.src = window.URL.createObjectURL(stream);
@@ -55,6 +84,7 @@ function drawOnCanvas(file) {
         c = document.querySelector('canvas'), //Search for the first canvas element founded
         ctx = c.getContext('2d'),
         img = new Image();
+
     img.onload = function() {
       c.width = img.width;
       c.height = img.height;
